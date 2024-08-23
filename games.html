@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>slweb/onclik</title>
+    <style type="text/css">
+     
+     #sharp{
+       position: relative;
+       width: 80px;
+       height: 80px;
+       background-color: #ff0000;
+       border-radius: ;
+     }
+      
+    </style>
+  </head>
+  <body>
+    <p> changes to dekstop mod play to game</p>
+    <p>you get time<span id="time"></span></p>
+    <div id="sharp"></div>
+    
+    <script type="text/javascript">
+    let timeStart = new Date().getTime();
+    
+    function sharpapping(){
+      let top = Math.random()*680;
+      let left = Math.random()*680;
+      let px = "px"
+      if (Math.random() > 0.5){
+        document.getElementById("sharp").style.borderRadius = "50%";
+      }
+      else{
+        document.getElementById("sharp").style.borderRadius = "0%";
+      }
+      document.getElementById("sharp").style.left = left + px ;
+      document.getElementById("sharp").style.top = top + px ;
+      document.getElementById("sharp").style.displ = "none";
+      document.getElementById("sharp").style.display = "block"
+      timeStart = new Date().getTime();
+    }
+    function shardel(){
+      setTimeout(sharpapping,Math.random() * 1400);
+    }
+    
+    
+    document.getElementById("sharp").onclick = function(){
+      document.getElementById("sharp").style.display ="none"
+      let timeEnd = new Date().getTime();
+      let time = (timeEnd - timeStart) / 1000;
+      
+      document.getElementById("time").innerHTML = "  " + time  + "s";
+      shardel();
+    }
+    
+      
+    </script>
+  </body>
+</html>
